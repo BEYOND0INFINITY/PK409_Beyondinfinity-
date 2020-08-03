@@ -17,8 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".retailer.retailer"/>
-        <activity android:name=".retailer.ShowShop"/>
         <activity android:name=".TransportationActivity" />
         <activity android:name=".BottomBar"
             android:theme="@style/AppTheme.NoActionBar"/>
@@ -35,6 +33,7 @@
         <activity android:name=".Profile.ProfileActivity" />
         <activity android:name=".News.activity.NewsActivity" />
         <activity android:name=".News.activity.WebViewActivity" />
+        <activity android:name=".retailer.retailer" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".YTvideo.Videos" />
         <activity android:name=".Advisory.CropDesc" />

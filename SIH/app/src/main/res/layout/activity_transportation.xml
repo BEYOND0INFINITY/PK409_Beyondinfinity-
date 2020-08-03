@@ -10,7 +10,7 @@
         android:id="@+id/topView"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:background="@drawable/gradient"
+        android:background="#2BA047"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,7 +19,8 @@
         android:id="@+id/view5"
         android:layout_width="fill_parent"
         android:layout_height="100dp"
-        android:background="@drawable/wavesample1"
+        android:background="@drawable/wave"
+        android:backgroundTint="@color/appColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topView" />
@@ -54,7 +55,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
-            android:background="@drawable/gradientbutton"
+            android:background="#704ED36E"
             android:padding="5dp">
 
             <TextView
@@ -64,7 +65,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/transtitle"
-                android:textColor="@color/white"
+                android:textColor="#1A652C"
                 android:textStyle="bold"></TextView>
 
         </TableRow>
@@ -119,7 +120,7 @@
             android:paddingRight="10dp">
 
             <TableRow
-                android:background="@drawable/gradientbutton"
+                android:background="#704ED36E"
                 android:padding="5dp">
 
                 <TextView
@@ -128,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/sr_no"
-                    android:textColor="@color/white"
+                    android:textColor="#1A652C"
                     android:textStyle="bold" />
 
                 <TextView
@@ -138,7 +139,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/transport"
-                    android:textColor="@color/white"
+                    android:textColor="#1A652C"
                     android:textStyle="bold" />
 
                 <TextView
@@ -148,7 +149,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/webaddress"
-                    android:textColor="@color/white"
+                    android:textColor="#1A652C"
                     android:textStyle="bold" />
             </TableRow>
 

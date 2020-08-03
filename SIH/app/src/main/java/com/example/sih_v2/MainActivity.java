@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,18 +12,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.sih_v2.Advisory.Advisory;
 import com.example.sih_v2.Helper.LocaleHelper;
 import com.example.sih_v2.News.activity.NewsActivity;
-import com.example.sih_v2.Profile.ProfileActivity;
 import com.example.sih_v2.Protection.cropTypeProtection;
 import com.example.sih_v2.Settings.SettingsActivity;
 import com.example.sih_v2.Weather.activities.WeatherActivity;
@@ -32,15 +28,11 @@ import com.example.sih_v2.YTvideo.Videos;
 import com.example.sih_v2.Insurance.cropInsurance;
 import com.example.sih_v2.Schemes.Scheme;
 import com.example.sih_v2.retailer.retailer;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import io.paperdb.Paper;
-import nl.joery.animatedbottombar.AnimatedBottomBar;
 
 
 public class MainActivity extends AppCompatActivity{
@@ -61,6 +53,7 @@ public class MainActivity extends AppCompatActivity{
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
 
         t_estamate = findViewById(R.id.t_estimate);
@@ -84,8 +77,8 @@ public class MainActivity extends AppCompatActivity{
         slideModelList.add(new SlideModel("https://www.centralbankofindia.co.in/images/MSMEBanner.jpg","Img 3"));
         slideModelList.add(new SlideModel("https://img.tradeindia.com/new_website1/tradeshowslandingpage/agriasia/2/banner1.jpg","Img 4"));
         slideModelList.add(new SlideModel("https://img.tradeindia.com/new_website1/tradeshowslandingpage/agriasia/2/banner3.jpg","Img 5"));
-        imageSlider.setImageList(slideModelList, false);
 
+        imageSlider.setImageList(slideModelList, false);
 
         /*
         ImageButton protection = findViewById(R.id.protection);
@@ -154,28 +147,6 @@ public class MainActivity extends AppCompatActivity{
             }
         }); */
 
-        AnimatedBottomBar animatedBottomBar = findViewById(R.id.animatedBottomBar);
-        animatedBottomBar.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
-            @Override
-            public void onTabSelected(int lastIndex, @Nullable AnimatedBottomBar.Tab lastTab, int newIndex, @NotNull AnimatedBottomBar.Tab newTab) {
-                Fragment fragment = null;
-                switch (newTab.getId()) {
-                    case R.id.Home:
-                        break;
-                    case R.id.Profile:
-                        startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-                        overridePendingTransition(0,0);
-                        break;
-                    case R.id.settings:
-                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-                        overridePendingTransition(0,0);
-                        break;
-                }
-            }
-        });
-
-
-
         Paper.init(this);
         String language = Paper.book().read("language");
         if (language == null)
@@ -199,48 +170,10 @@ public class MainActivity extends AppCompatActivity{
         int id = item.getItemId();
         if (id == R.id.settings) {
             startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-            return true;
-        }
-
-
-        if (item.getItemId() == R.id.language_en)
-        {
-            Paper.book().write("language","en");
-            updateView(Paper.book().read("language"));
-            return true;
-        }
-        else if (item.getItemId() == R.id.language_hi)
-        {
-            Paper.book().write("language","hi");
-            updateView(Paper.book().read("language"));
-            return true;
-        }
-        else if (item.getItemId() == R.id.language_ta)
-        {
-            Paper.book().write("language","ta");
-            updateView(Paper.book().read("language"));
-            return true;
-        }
-        else if (item.getItemId() == R.id.language_mr)
-        {
-            Paper.book().write("language","mr");
-            updateView(Paper.book().read("language"));
-            return true;
-        }
-        else if (item.getItemId() == R.id.language_bn)
-        {
-            Paper.book().write("language","bn");
-            updateView(Paper.book().read("language"));
-            return true;
-        }
-        else if (item.getItemId() == R.id.language_pa)
-        {
-            Paper.book().write("language","pa");
-            updateView(Paper.book().read("language"));
+            Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_LONG).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
-
     }
 
 

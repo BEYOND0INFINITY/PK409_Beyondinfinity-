@@ -1,12 +1,9 @@
 package com.example.sih_v2.Profile;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -15,14 +12,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.sih_v2.Helper.LocaleHelper;
-import com.example.sih_v2.MainActivity;
 import com.example.sih_v2.R;
-import com.example.sih_v2.Settings.SettingsActivity;
-
-import org.jetbrains.annotations.NotNull;
 
 import io.paperdb.Paper;
-import nl.joery.animatedbottombar.AnimatedBottomBar;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -50,40 +42,22 @@ public class ProfileActivity extends AppCompatActivity {
         edit = findViewById(R.id.edit);
 
         personalinfo = findViewById(R.id.personalinfo);
+
         personalinfobtn = findViewById(R.id.personalinfobtn);
 
-
-        AnimatedBottomBar animatedBottomBar = findViewById(R.id.animatedBottomBar);
-        animatedBottomBar.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
-            @Override
-            public void onTabSelected(int lastIndex, @Nullable AnimatedBottomBar.Tab lastTab, int newIndex, @NotNull AnimatedBottomBar.Tab newTab) {
-                Fragment fragment = null;
-                switch (newTab.getId()) {
-                    case R.id.Home:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        overridePendingTransition(0,0);
-                        break;
-                    case R.id.Profile:
-                        break;
-                    case R.id.settings:
-                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-                        overridePendingTransition(0,0);
-                        break;
-                }
-            }
-        });
-
-
-
-
-
         /*making personal info visible*/
+        personalinfo.setVisibility(View.VISIBLE);
+        experience.setVisibility(View.GONE);
+        review.setVisibility(View.GONE);
+
 
         personalinfobtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 personalinfo.setVisibility(View.VISIBLE);
-                //review.setVisibility(View.GONE);
+                experience.setVisibility(View.GONE);
+                review.setVisibility(View.GONE);
                 personalinfobtn.setTextColor(getResources().getColor(R.color.blue));
             }
         });
@@ -106,6 +80,7 @@ public class ProfileActivity extends AppCompatActivity {
         sih.setText(resources.getString(R.string.sih_v2));
         dev.setText(resources.getString(R.string.android_developer));
         rate.setText(resources.getString(R.string.rate_us));
+        contact.setText(resources.getString(R.string.contact));
         verify.setText(resources.getString(R.string.verification_done));
         edit.setText(resources.getString(R.string.edit));
         personalinfobtn.setText(resources.getString(R.string.user_info));

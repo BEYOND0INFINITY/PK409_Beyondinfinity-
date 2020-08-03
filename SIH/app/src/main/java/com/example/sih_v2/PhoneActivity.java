@@ -14,7 +14,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,15 +30,13 @@ import io.paperdb.Paper;
 public class PhoneActivity extends AppCompatActivity {
 
    // public static final String TAG = TAG;
-    TextView register,state;
+    TextView register;
     EditText number;
     Button next;
     FirebaseAuth fAuth;
     String verificationId;
     PhoneAuthProvider.ForceResendingToken token;
     Boolean verificationInProgress = false;
-    ProgressBar progressBar;
-
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -55,41 +52,34 @@ public class PhoneActivity extends AppCompatActivity {
         register = findViewById(R.id.topText);
         number = findViewById(R.id.name);
         next = findViewById(R.id.next);
-        progressBar = findViewById(R.id.progressBar);
-        state = findViewById(R.id.state);
 
         overridePendingTransition(0,0);
         View relativeLayout=findViewById(R.id.login_container);
 
         Animation animation= AnimationUtils.loadAnimation(this,android.R.anim.slide_in_left);
         relativeLayout.startAnimation(animation);
-//After clicking Send Otp Button
-// to send otp with reading Mobile Number
+
         Button next = findViewById(R.id.next);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!number.getText().toString().isEmpty() && number.getText().toString().length()==10) {
                     String phoneNum = "+"+"91"+number.getText().toString();
-                   //Log.d("TAG", "onClick: Phone No -> "+phoneNum);
-                    progressBar.setVisibility(View.VISIBLE);
-                    state.setText("Sending OTP");
-                    state.setVisibility(View.VISIBLE);
+                    Log.d("TAG", "onClick: Phone No -> "+phoneNum);
+                   // progressBar.setVisibility(View.VISIBLE);
+                    //state.setText("Sending OTP");
+                    //state.setVisibility(View.VISIBLE);
                     requestOTP(phoneNum);//call to method which will request to send otp
-                   if(verificationInProgress==true){
-                        Intent intent = new Intent(PhoneActivity.this, OtpEnterActivity.class);
-                        intent.putExtra("val",verificationInProgress);
-                        intent.putExtra("val2",verificationId);
-                        startActivity(intent);
-                    }
+
                 }
                 else{
                     number.setError("Phone Number is not valid");
-                    number.setText("");
                 }
+
+
             }
         });
-//End of next (OTP Sending) Button Block
+
         Paper.init(this);
         String language = Paper.book().read("language");
         if (language == null)
@@ -97,7 +87,7 @@ public class PhoneActivity extends AppCompatActivity {
         updateView((String)Paper.book().read("language"));
 
     }
-//Method to send OTP Call in Next button's OnClick event
+
     private void requestOTP(String phoneNum) {
         //Start copy
         PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNum, 60L, TimeUnit.SECONDS, this, new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -105,17 +95,23 @@ public class PhoneActivity extends AppCompatActivity {
             @Override
             public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                 super.onCodeSent(s, forceResendingToken);
-                progressBar.setVisibility(View.GONE);
-                state.setVisibility(View.GONE);
+                //progressBar.setVisibility(View.GONE);
+               // state.setVisibility(View.GONE);
+
+                //codeEnter.setVisibility(View.VISIBLE);
+                //verifyOtpBtn.setVisibility(View.VISIBLE);
+                //resendOtp.setVisibility(View.VISIBLE);
                 verificationId=s;
                 token=forceResendingToken;
-                verificationInProgress=true;
+
+                // nextBtn.setText("Verify OTP");
+                //nextBtn.setEnabled(false);
+               verificationInProgress=true;
             }
 
             @Override
             public void onCodeAutoRetrievalTimeOut(String s) {
                 super.onCodeAutoRetrievalTimeOut(s);
-                //Toast.makeText(PhoneActivity.this,"Verification Time Out", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -126,14 +122,14 @@ public class PhoneActivity extends AppCompatActivity {
 
             @Override
             public void onVerificationFailed(FirebaseException e) {
-                Toast.makeText(PhoneActivity.this,"Cannot Create Account "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(PhoneActivity.this,"Cannot Create Account"+e.getMessage(), Toast.LENGTH_SHORT).show();
 
 
             }
         });
         //End copy
     }
-////End Of Method to send OTP Call in Next button's OnClick event
+
 
     private void updateView(String lang) {
         Context context = LocaleHelper.setLocale(this,lang);

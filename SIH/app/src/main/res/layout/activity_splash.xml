@@ -18,21 +18,5 @@
         android:layout_marginTop="100dp"
         android:src="@drawable/logo1" />
 
-    <TextView
-        android:id="@+id/tagline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Feeding India"
-        android:textColor="@color/appColor"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:layout_marginTop="290dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp">
-
-    </TextView>
-
-
-
 
 </RelativeLayout>

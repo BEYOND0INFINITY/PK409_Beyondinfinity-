@@ -68,13 +68,14 @@ public class cropCamera extends AppCompatActivity implements View.OnClickListene
         buttonUpload = (Button) findViewById(R.id.buttonUpload);
         imageView = (ImageView) findViewById(R.id.imageView);
         editTextName = (EditText) findViewById(R.id.editText);
+        textViewShow = (TextView) findViewById(R.id.textViewShow);
 
         storageReference = FirebaseStorage.getInstance().getReference();
         mDatabase = FirebaseDatabase.getInstance().getReference(Constants.DATABASE_PATH_UPLOADS);
 
         buttonChoose.setOnClickListener(this);
         buttonUpload.setOnClickListener(this);
-
+        textViewShow.setOnClickListener(this);
 
         Paper.init(this);
         String language = Paper.book().read("language");
@@ -91,6 +92,7 @@ public class cropCamera extends AppCompatActivity implements View.OnClickListene
         buttonChoose.setText(resources.getString(R.string.choose));
         buttonUpload.setText(resources.getString(R.string.upload));
         editTextName.setText(resources.getString(R.string.add_discription_for_image));
+        textViewShow.setText(resources.getString(R.string.view_uploads));
 
     }
 

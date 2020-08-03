@@ -10,7 +10,7 @@
         android:id="@+id/topView"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:background="@drawable/gradient"
+        android:background="#2BA047"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,7 +19,8 @@
         android:id="@+id/view5"
         android:layout_width="fill_parent"
         android:layout_height="80dp"
-        android:background="@drawable/wavesample1"
+        android:background="@drawable/wave"
+        android:backgroundTint="#2BA047"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topView" />
@@ -95,7 +96,8 @@
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="130dp"
-                android:background="@drawable/gradientbutton"
+                android:background="@drawable/round_bg"
+                android:backgroundTint="#2BA047"
                 android:text="@string/submit"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
@@ -112,12 +114,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/proceed" />
-
-            <Button
-                android:id="@+id/resend"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Resend OTP" />
 
         </LinearLayout>
     </RelativeLayout>

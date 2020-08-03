@@ -21,9 +21,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/gradientbutton"
-            android:text="@string/choose"
-            android:textColor="@color/white"/>
+            android:backgroundTint="#FFD9B6"
+            android:text="@string/choose" />
 
         <EditText
             android:id="@+id/editText"
@@ -54,9 +53,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/gradientbutton"
-            android:text="@string/upload"
-            android:textColor="@color/white"/>
+            android:backgroundTint="#FFD9B6"
+            android:text="@string/upload" />
 
+        <TextView
+            android:id="@+id/textViewShow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/view_uploads"
+            android:textAlignment="center"
+            android:textColor="#86592d"
+            android:textStyle="bold" />
     </LinearLayout>
 </RelativeLayout>

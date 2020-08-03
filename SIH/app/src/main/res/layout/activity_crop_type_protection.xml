@@ -10,7 +10,7 @@
         android:id="@+id/topView"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:background="@drawable/gradient"
+        android:background="@color/appColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,7 +19,8 @@
         android:id="@+id/view5"
         android:layout_width="fill_parent"
         android:layout_height="120dp"
-        android:background="@drawable/wavesample1"
+        android:background="@drawable/wave"
+        android:backgroundTint="@color/appColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +50,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <Button
+            android:id="@+id/gotocam"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:backgroundTint="#704ED36E"
+            android:text="@string/upload_pic">
+
+        </Button>
 
         <TextView
             android:id="@+id/txt"
@@ -57,18 +66,8 @@
             android:gravity="center"
             android:textSize="20sp"
             android:text="@string/send_us_photo_of_your_crop_to_get_solutions_from_our_experts">
-        </TextView>
 
-        <Button
-            android:layout_marginTop="15dp"
-            android:id="@+id/gotocam"
-            android:layout_width="350dp"
-            android:layout_gravity="center"
-            android:layout_height="50dp"
-            android:background="@drawable/gradientbutton"
-            android:textColor="@color/white"
-            android:text="@string/upload_pic">
-        </Button>
+        </TextView>
 
     </LinearLayout>
 
@@ -104,7 +103,7 @@
                     android:layout_margin="12dp"
                     android:clickable="true"
                     android:onClick="displayPDF"
-                    app:cardBackgroundColor="@color/white"
+                    app:cardBackgroundColor="#704ED36E"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="15dp">
 
@@ -127,8 +126,7 @@
                             android:layout_marginStart="100dp"
                             android:background="@drawable/flag_transparent"
                             android:text="@string/protection_from_weeds"
-                            android:textSize="18sp"
-                            android:textColor="@color/appColor"/>
+                            android:textSize="18sp" />
 
 
                     </RelativeLayout>
@@ -140,7 +138,7 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
-                    app:cardBackgroundColor="@color/white"
+                    app:cardBackgroundColor="#704ED36E"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="15dp">
 
@@ -164,8 +162,7 @@
                             android:layout_marginStart="100dp"
                             android:background="@drawable/flag_transparent"
                             android:text="@string/protection_from_diseases"
-                            android:textSize="18sp"
-                            android:textColor="@color/appColor"/>
+                            android:textSize="18sp" />
 
 
                     </RelativeLayout>
@@ -177,13 +174,14 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
-                    app:cardBackgroundColor="@color/white"
+                    app:cardBackgroundColor="#704ED36E"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="15dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+
                         android:orientation="vertical"
                         android:padding="16dp">
 
@@ -200,8 +198,7 @@
                             android:layout_marginStart="100dp"
                             android:background="@drawable/flag_transparent"
                             android:text="@string/protection_from_insects"
-                            android:textSize="18sp"
-                            android:textColor="@color/appColor"/>
+                            android:textSize="18sp" />
 
 
                     </RelativeLayout>

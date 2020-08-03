@@ -10,8 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.denzcoskun.imageslider.ImageSlider;
-import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.sih_v2.Insurance.cropInsurance;
 import com.example.sih_v2.News.activity.NewsActivity;
 import com.example.sih_v2.Protection.cropTypeProtection;
@@ -25,9 +23,6 @@ import com.example.sih_v2.retailer.retailer;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import nl.joery.animatedbottombar.AnimatedBottomBar;
 
 public class BottomBar extends AppCompatActivity {
@@ -39,14 +34,12 @@ public class BottomBar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_nav);
-
-
+        setTitle("Kisaan Seva");
 
         animatedBottomBar = findViewById(R.id.animatedBottomBar);
 
         if (savedInstanceState == null) {
             animatedBottomBar.selectTabById(R.id.home, true);
-
             fragmentManager = getSupportFragmentManager();
             HomeFragment homeFragment = new HomeFragment();
             fragmentManager.beginTransaction().replace(R.id.fragment_container, homeFragment)
@@ -83,10 +76,10 @@ public class BottomBar extends AppCompatActivity {
 
 
 
-
+/*
     public  void Protection(View view){
         startActivity(new Intent(getApplicationContext(), cropTypeProtection.class));
-
+        //setTitle("Protection of Crops");
     }
     public void Insurance(View view) {
         startActivity(new Intent(getApplicationContext(), cropInsurance.class));
@@ -116,10 +109,6 @@ public class BottomBar extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), WeatherActivity.class));
     }
 
-    public void transport(View view) {
-        startActivity(new Intent(getApplicationContext(), TransportationActivity.class));
-    }
-
     public void Privacy_Policy(View view) {
         DialogPolicy exampleDialog = new DialogPolicy();
         exampleDialog.show(getSupportFragmentManager(), "Privacy Policies");
@@ -134,7 +123,7 @@ public class BottomBar extends AppCompatActivity {
         DialogLicences exampleDialog = new DialogLicences();
         exampleDialog.show(getSupportFragmentManager(), "Privacy Policies");
     }
-
+*/
     public void connect(View view) {
 
         Intent intent=new Intent(Intent.ACTION_SEND);

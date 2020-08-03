@@ -11,7 +11,7 @@
         android:id="@+id/topView"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:background="@drawable/gradient"
+        android:background="@color/appColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,8 +19,9 @@
     <View
         android:id="@+id/view5"
         android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:background="@drawable/wavesample1"
+        android:layout_height="60dp"
+        android:background="@drawable/wave"
+        android:backgroundTint="@color/appColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topView" />
@@ -199,10 +200,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="130dp"
-                        android:gravity="center"
                         android:text="Connect Us"
-                        android:textSize="20sp">
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:layout_marginStart="130dp">
 
                     </TextView>
 
@@ -210,8 +211,8 @@
 
                         android:layout_width="25dp"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="240dp"
-                        android:src="@drawable/gmaillogo">
+                        android:src="@drawable/gmaillogo"
+                        android:layout_marginStart="240dp">
 
                     </ImageView>
                 </RelativeLayout>
@@ -233,11 +234,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
                     android:text="LOGOUT"
-                    android:textColor="@color/white"
                     android:textSize="24dp"
-                    android:textStyle="bold" />
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -282,6 +283,9 @@
 
 -->
 
+
+
+
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -298,26 +302,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <nl.joery.animatedbottombar.AnimatedBottomBar
-        android:id="@+id/animatedBottomBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/gradient"
-        android:elevation="2dp"
-        app:abb_animationDuration="650"
-        app:abb_animationInterpolator="@android:anim/overshoot_interpolator"
-        app:abb_indicatorAppearance="round"
-        app:abb_indicatorColor="@color/white"
-        app:abb_indicatorHeight="4dp"
-        app:abb_indicatorMargin="16dp"
-        app:abb_selectedIndex="2"
-        app:abb_selectedTabType="text"
-        app:abb_tabAnimation="slide"
-        app:abb_tabColor="#CCFFFFFF"
-        app:abb_tabColorSelected="@color/white"
-        app:abb_tabs="@menu/menu"
-        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

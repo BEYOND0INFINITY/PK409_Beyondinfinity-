@@ -16,8 +16,8 @@ import com.example.sih_v2.R;
 import io.paperdb.Paper;
 
 public class CropDesc extends AppCompatActivity {
-
-    TextView Crop, Type, Variety, maturity;
+    //,
+    TextView Crop, Type, Variety;
     String cropNew, typeNew, varietyNew, desc;
 
     TextView crop_descr,type,crop,variety,Maturity;
@@ -41,7 +41,6 @@ public class CropDesc extends AppCompatActivity {
         Crop = (TextView)findViewById(R.id.text);
         Type = (TextView)findViewById(R.id.crop);
         Variety = (TextView)findViewById(R.id.var);
-        maturity = (TextView) findViewById(R.id.mat);
         Intent intent = getIntent();
         String str = intent.getStringExtra("crop");
         String str1 = intent.getStringExtra("type");
@@ -49,22 +48,26 @@ public class CropDesc extends AppCompatActivity {
         Crop.setText(str);
         Type.setText(str1);
         Variety.setText(str2);
-
+        TextView maturity = (TextView) findViewById(R.id.mat);
 
         cropNew = Crop.toString();
         typeNew = Type.toString();
         varietyNew = Variety.toString();
 
-
-        if (typeNew.equals("Cereals")){
+        if (typeNew.equals("Cereal")){
             if (cropNew.equals("Finger Millet")){
+                //maturity = (TextView)findViewById(R.id.mat);
+                //maturity.setText("Late 125-130");
                 desc = "Late 125-130";
-                maturity.setText(desc);
+                maturity.setText(desc.toString());
             }
 
-            else if(cropNew == "Maize"){
+            else if(cropNew.equals("Maize")){
                 if (varietyNew.equals("Hishell (MCH-42) (Hybrid)") || varietyNew.equals("HM-12 (HKH 313) Hybrid") || varietyNew.equals("KMH 3712 (Hybrid)") || varietyNew.equals("KMH-218 Plus (Hybrid)") || varietyNew.equals("KMH-25K60 (Hybrid)") || varietyNew.equals("KMH-3426 (Hybrid)") || varietyNew.equals("NMH-803 (Hybrid)")){
+                    //maturity = (TextView)findViewById(R.id.mat);
                     maturity.setText(getResources().getString(R.string.mat1));
+                    //desc = "c";
+                    //maturity.setText(desc);
                 }
                 else if (varietyNew == "NMH-731 (Hybrid)" || varietyNew == "SMH-3904"){
                     //maturity = (TextView)findViewById(R.id.mat);

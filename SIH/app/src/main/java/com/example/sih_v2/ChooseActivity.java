@@ -13,10 +13,8 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.sih_v2.Helper.LocaleHelper;
-import com.example.sih_v2.Settings.SettingsActivity;
 
 import io.paperdb.Paper;
 
@@ -41,6 +39,7 @@ public class ChooseActivity extends AppCompatActivity {
 
         overridePendingTransition(0,0);
         View relativeLayout=findViewById(R.id.login_container);
+
         Animation animation= AnimationUtils.loadAnimation(this,android.R.anim.slide_in_left);
         relativeLayout.startAnimation(animation);
 
@@ -82,7 +81,6 @@ public class ChooseActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
         if (item.getItemId() == R.id.language_en)
         {
             Paper.book().write("language","en");
